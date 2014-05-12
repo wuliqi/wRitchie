@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">理琪随身助手</string>
+    <string name="action_settings">Settings</string>
+    <string name="launcher_loading">正在启动&#8230;</string>
+    <string name="login_title">登录</string>
+    <string name="main_exit">注销</string>
+    <string name="main_exit_toast">您已经注销QQ成功</string>
+    <string name="login_qq_error_toast">QQ授权登录失败</string>
+    <string name="login_qq_success_toast">QQ授权登录成功</string>
+    <string name="login_desc"> \t\t "理琪随身助手" (wRitchie Personal Assistant 简称WPA)采用QQ登录OAuth2.0体系，不记录任何登录信息，您可以安全使用OAuth（开放授权）是一个开放标准，允许用户授权第三方网站访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方网站或分享他们数据的所有内容</string>
+    <string name="main_exit_app_toast"> 再按一次退出理琪随身助手</string>
+    <string name="gradding">您好，</string>
+    <string name="no_user_photo">暂无头像</string>
+    <string name="no">无</string>
+    <string name="menu_personal_information">个人资讯</string>
+    <string name="menu_exit">退出</string>
+    <string name="menu_setting">设置</string>
+    <string name="title_activity_personal_information">PersonalInformationActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="login_qq_login">QQ登录</string>
+    <string name="personal_info_input_url">请输入网址</string>
+    <string name="personal_info_go">走</string>
+    <string name="back">返回</string>
+
+</resources>

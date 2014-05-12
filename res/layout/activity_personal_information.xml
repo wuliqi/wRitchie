@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalInformationActivity" >
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/common_header" />
+
+    <LinearLayout
+        android:id="@+id/hotArea"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextUrls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/personal_info_input_url"
+            android:singleLine="true" 
+            android:layout_weight="0.9"/>
+
+        <Button
+            android:id="@+id/go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_weight="0.1"
+            android:text="@string/personal_info_go"/>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hotArea" />
+
+</RelativeLayout>
