@@ -75,7 +75,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
+				<!-- tencent的AppId -->
                 <data android:scheme="1101366373" />
             </intent-filter>
         </activity>

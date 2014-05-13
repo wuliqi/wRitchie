@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -17,15 +18,14 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.loopj.android.image.SmartImageView;
 import com.tencent.connect.UserInfo;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.UiError;
 import com.writchie.R;
-import com.writchie.common.conf.HttpUrlConstants;
 import com.writchie.framework.activity.BaseActivity;
 import com.writchie.framework.utils.FastJsonUtil;
 import com.writchie.framework.utils.StringUtil;
@@ -41,8 +41,8 @@ import com.writchie.personal.activity.PersonalInformationActivity;
 @SuppressLint("HandlerLeak")
 public class MainActivity extends BaseActivity implements OnClickListener {
 	private boolean isExit;// 两次点击返回键标记
-	private UserInfo mInfo;
 	private Map<String, Object> baiduGPSMap = new HashMap<String, Object>();// 百度地图Map对象
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		Button rightBtn = (Button) this.findViewById(R.id.header_right_btn);// 注销
 		rightBtn.setText(getString(R.string.main_exit));
 
-		// rightBtn.setBackgroundResource(R.drawable.logout_exit);
+		
 		rightBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -76,36 +76,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				+ mTencent.getQQToken().getAccessToken() + "\nOpenId："
 				+ mTencent.getQQToken().getOpenId() + "\nAppId:"
 				+ mTencent.getQQToken().getAppId());
-		// TODO
-		AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-		RequestParams parames = new RequestParams();
-		parames.add("access_token", mTencent.getQQToken().getAccessToken());
-		parames.add("oath_consumer_key", mTencent.getQQToken().getAppId());//
-		parames.add("openid", mTencent.getQQToken().getOpenId());
-		parames.add("format", "json");
-		asyncHttpClient.get(HttpUrlConstants.GET_USER_INFO, parames,
-				new AsyncHttpResponseHandler() {
-
-					@Override
-					public void onFailure(Throwable error, String content) {
-
-					}
-
-					@Override
-					public void onFinish() {
-						super.onFinish();
-					}
-
-					@Override
-					public void onSuccess(String content) {
-						Log.i("wRitchie", "QQ网络请求用户信息：" + content);
-						Map<String, Object> userInfoMap = FastJsonUtil
-								.toMap(content);
-						initLeftMenuHeader(userInfoMap);
-					}
-
-				});
-
+		  UserInfo info = new UserInfo(this, mTencent.getQQToken());
+		  IUiListener uiListener=new WBaseUIListener(this, "get_user_info");//get_simple_userinfo
+		  info.getUserInfo(uiListener);
+		
+		
+		//左侧菜单
 		SlidingMenu menu = new SlidingMenu(this);
 		menu.setMode(SlidingMenu.LEFT);
 		menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
@@ -130,7 +106,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	// 左侧菜单头部信息初始化
 	protected void initLeftMenuHeader(Map<String, Object> userInfoMap) {
 		String nickName = userInfoMap.get("nickname") + "";
-		String qqPhotoUrl = userInfoMap.get("figureurl_qq_1") + "";// 40X40像素的QQ头像url
+		String qqPhotoUrl = userInfoMap.get("figureurl_qq_2") + "";// 40X40像素的QQ头像url
 		TextView text = (TextView) this.findViewById(R.id.nickName);
 		TextView addr = (TextView) this.findViewById(R.id.addr);
 		SmartImageView qqPhoto = (SmartImageView) this
@@ -140,7 +116,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}else{
 			qqPhoto.setImageUrl(qqPhotoUrl);
 		}
-		text.setText("您好，" + nickName + "！");
+		text.setText( nickName +"，您好！");
 		addr.setText(baiduGPSMap.get("addr") + "");
 
 		// qqPhoto.setBackground(); TODO 获取头像
@@ -227,4 +203,38 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 
 	}
+	public class WBaseUIListener implements  IUiListener{
+		private Context mContext;
+		private String mScope;
+
+		@Override
+		public void onCancel() {
+			
+			
+		}
+
+		@Override
+		public void onComplete(Object response) {
+			  Toast.makeText(MainActivity.this, "#理琪信息：userinfog:"+response.toString(), 1).show();
+			
+			  Log.i("wRitchie", "QQ网络请求用户信息：" + response);
+			  Map<String, Object> userInfoMap = FastJsonUtil
+						.toMap(response.toString());
+				initLeftMenuHeader(userInfoMap);
+			
+		}
+
+		@Override
+		public void onError(UiError arg0) {
+			
+		}
+		
+		public WBaseUIListener(Context mContext, String mScope) {
+			super();
+			this.mContext = mContext;
+			this.mScope = mScope;
+		}
+		
+	}
+
 }

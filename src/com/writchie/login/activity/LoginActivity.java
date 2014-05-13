@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
 	}
 
 	public void doLogin() {
-		if(!(StringUtil.isEmpty(openid)||StringUtil.isEmpty(access_token)||StringUtil.isEmpty(expires_in))){
+		/*if(!(StringUtil.isEmpty(openid)||StringUtil.isEmpty(access_token)||StringUtil.isEmpty(expires_in))){
 			// 密码解密成明文
 			String md5 = MD5Util.md5(Constants.SKEY);
 			String sKey = md5.substring(0, md5.length() - 16);
@@ -77,7 +77,7 @@ public class LoginActivity extends BaseActivity {
 			Intent intent=new Intent(LoginActivity.this,MainActivity.class);
 			startActivity(intent);
 			finish();
-		}
+		}*/
 		
 		if (!mTencent.isSessionValid()) {
 			mTencent.login(this, Scope, new IUiListener() {
