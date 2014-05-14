@@ -117,7 +117,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			qqPhoto.setImageUrl(qqPhotoUrl);
 		}
 		text.setText( nickName +"，您好！");
-		addr.setText(baiduGPSMap.get("addr") + "");
+		addr.setText(StringUtil.trimNull(baiduGPSMap.get("addr") + ""));
 
 		// qqPhoto.setBackground(); TODO 获取头像
 		// Bitmap bitmap = Util.getbitmap(qqPhotoUrl);
