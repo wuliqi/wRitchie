@@ -33,15 +33,15 @@ import com.writchie.login.activity.LoginActivity;
 import com.writchie.personal.activity.PersonalInformationActivity;
 
 /**
- * Ö÷Ò³½çÃæ
+ * ä¸»é¡µç•Œé¢
  * 
  * @author wRitchie
  * 
  */
 @SuppressLint("HandlerLeak")
 public class MainActivity extends BaseActivity implements OnClickListener {
-	private boolean isExit;// Á½´Îµã»÷·µ»Ø¼ü±ê¼Ç
-	private Map<String, Object> baiduGPSMap = new HashMap<String, Object>();// °Ù¶ÈµØÍ¼Map¶ÔÏó
+	private boolean isExit;// ä¸¤æ¬¡ç‚¹å‡»è¿”å›é”®æ ‡è®°
+	private Map<String, Object> baiduGPSMap = new HashMap<String, Object>();// ç™¾åº¦åœ°å›¾Mapå¯¹è±¡
 	
 
 	@Override
@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		Button leftBtn = (Button) this.findViewById(R.id.header_left_btn);
 		leftBtn.setVisibility(View.GONE);
 
-		Button rightBtn = (Button) this.findViewById(R.id.header_right_btn);// ×¢Ïú
+		Button rightBtn = (Button) this.findViewById(R.id.header_right_btn);// æ³¨é”€
 		rightBtn.setText(getString(R.string.main_exit));
 
 		
@@ -72,8 +72,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 
-		System.out.println("getQQToken  AccessToken£º"
-				+ mTencent.getQQToken().getAccessToken() + "\nOpenId£º"
+		System.out.println("getQQToken  AccessTokenï¼š"
+				+ mTencent.getQQToken().getAccessToken() + "\nOpenIdï¼š"
 				+ mTencent.getQQToken().getOpenId() + "\nAppId:"
 				+ mTencent.getQQToken().getAppId());
 		  UserInfo info = new UserInfo(this, mTencent.getQQToken());
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		  info.getUserInfo(uiListener);
 		
 		
-		//×ó²à²Ëµ¥
+		//å·¦ä¾§èœå•
 		SlidingMenu menu = new SlidingMenu(this);
 		menu.setMode(SlidingMenu.LEFT);
 		menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
@@ -90,23 +90,23 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
 		menu.setFadeDegree(0.35f);
 		menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-		menu.setMenu(R.layout.left_menu);// ×ó²à²Ëµ¥²¼¾Ö
+		menu.setMenu(R.layout.left_menu);// å·¦ä¾§èœå•å¸ƒå±€
 
-		// ¸öÈË×ÊÑ¶
+		// ä¸ªäººèµ„è®¯
 		LinearLayout linearLayout2 = (LinearLayout) this
 				.findViewById(R.id.line2);
 		linearLayout2.setOnClickListener(this);
 
-		// ÍË³ö
+		// é€€å‡º
 		LinearLayout linearLayout6 = (LinearLayout) this
 				.findViewById(R.id.line6);
 		linearLayout6.setOnClickListener(this);
 	}
 
-	// ×ó²à²Ëµ¥Í·²¿ĞÅÏ¢³õÊ¼»¯
+	// å·¦ä¾§èœå•å¤´éƒ¨ä¿¡æ¯åˆå§‹åŒ–
 	protected void initLeftMenuHeader(Map<String, Object> userInfoMap) {
 		String nickName = userInfoMap.get("nickname") + "";
-		String qqPhotoUrl = userInfoMap.get("figureurl_qq_2") + "";// 40X40ÏñËØµÄQQÍ·Ïñurl
+		String qqPhotoUrl = userInfoMap.get("figureurl_qq_2") + "";// 40X40åƒç´ çš„QQå¤´åƒurl
 		TextView text = (TextView) this.findViewById(R.id.nickName);
 		TextView addr = (TextView) this.findViewById(R.id.addr);
 		SmartImageView qqPhoto = (SmartImageView) this
@@ -116,16 +116,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}else{
 			qqPhoto.setImageUrl(qqPhotoUrl);
 		}
-		text.setText( nickName +"£¬ÄúºÃ£¡");
+		text.setText( nickName +"ï¼Œæ‚¨å¥½ï¼");
 		addr.setText(StringUtil.trimNull(baiduGPSMap.get("addr") + ""));
 
-		// qqPhoto.setBackground(); TODO »ñÈ¡Í·Ïñ
+		// qqPhoto.setBackground(); TODO è·å–å¤´åƒ
 		// Bitmap bitmap = Util.getbitmap(qqPhotoUrl);
 		// qqPhoto.setImageBitmap(bitmap);
 
 	}
 
-	// ×¢Ïú
+	// æ³¨é”€
 	protected void logout() {
 		mTencent.logout(this);
 		if (!mTencent.isSessionValid()) {
@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		return true;
 	}
 
-	// ·µ»Ø¼üÊÂ¼ş
+	// è¿”å›é”®äº‹ä»¶
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 	}
 
-	// ÍË³öÏµÍ³
+	// é€€å‡ºç³»ç»Ÿ
 	public void exit() {
 		if (!isExit) {
 			isExit = true;
@@ -184,7 +184,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * ×óÍÆ²Ëµ¥Ïîµã»÷ÊÂ¼ş
+	 * å·¦æ¨èœå•é¡¹ç‚¹å‡»äº‹ä»¶
 	 */
 	@Override
 	public void onClick(View view) {
@@ -215,9 +215,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public void onComplete(Object response) {
-			  Toast.makeText(MainActivity.this, "#Àíç÷ĞÅÏ¢£ºuserinfog:"+response.toString(), 1).show();
+			  Toast.makeText(MainActivity.this, "#ç†çªä¿¡æ¯ï¼šuserinfog:"+response.toString(), 1).show();
 			
-			  Log.i("wRitchie", "QQÍøÂçÇëÇóÓÃ»§ĞÅÏ¢£º" + response);
+			  Log.i("wRitchie", "QQç½‘ç»œè¯·æ±‚ç”¨æˆ·ä¿¡æ¯ï¼š" + response);
 			  Map<String, Object> userInfoMap = FastJsonUtil
 						.toMap(response.toString());
 				initLeftMenuHeader(userInfoMap);
