@@ -1,18 +1,18 @@
 package com.writchie.common.conf;
 /**
- * È«¾Ö³£Á¿Àà
+ * å…¨å±€å¸¸é‡ç±»
  * @author wRitchie
  *
  */
 public class Constants {
-	public static final String PREFER_FILE_NAME="wRitchie";//SharedPreferencesµÄxmlÃû³Æ
-	public static final String SKEY="wRitchie";//md5¼ÓÃÜµÄÃÜÂë
-	public static final boolean DEBUG=true;//µ÷ÊÔ±ê¼Ç£ºtrue±íÊ¾ÔÚµ÷ÊÔ×´Ì¬,false±íÊ¾·¢²¼×´Ì¬£¬Ä¬ÈÏÎªfalse
+	public static final String PREFER_FILE_NAME="wRitchie";//SharedPreferencesçš„xmlåç§°
+	public static final String SKEY="wRitchie";//md5åŠ å¯†çš„å¯†ç 
+	public static final boolean DEBUG=true;//è°ƒè¯•æ ‡è®°ï¼štrueè¡¨ç¤ºåœ¨è°ƒè¯•çŠ¶æ€,falseè¡¨ç¤ºå‘å¸ƒçŠ¶æ€ï¼Œé»˜è®¤ä¸ºfalse
 	
-	public static final String APP_ID="1101366373";//android app QQËùÉêÇëµÄapp_id
-	public static final String APP_KEY="Ye9j4ELCErn2V3uG";//android app QQËùÉêÇëµÄapp_key
+	public static final String APP_ID="1101366373";//android app QQæ‰€ç”³è¯·çš„app_id
+	public static final String APP_KEY="Ye9j4ELCErn2V3uG";//android app QQæ‰€ç”³è¯·çš„app_key
 	
-	public static final String BAIDU_ACCESS_KEY="geL0d8AwOyDphMSwdpHr00A6";//°Ù¶ÈµØÍ¼key
+	public static final String BAIDU_ACCESS_KEY="geL0d8AwOyDphMSwdpHr00A6";//ç™¾åº¦åœ°å›¾key
 	
 	
 	

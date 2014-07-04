@@ -16,11 +16,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.loopj.android.image.SmartImageView;
 import com.tencent.connect.UserInfo;
 import com.tencent.tauth.IUiListener;
@@ -38,7 +36,6 @@ import com.writchie.personal.activity.PersonalInformationActivity;
  * @author wRitchie
  * 
  */
-@SuppressLint("HandlerLeak")
 public class MainActivity extends BaseActivity implements OnClickListener {
 	private boolean isExit;// 两次点击返回键标记
 	private Map<String, Object> baiduGPSMap = new HashMap<String, Object>();// 百度地图Map对象
@@ -49,15 +46,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		String qqInfo = getIntent().getStringExtra("qqInfo");
-		final TextView qqInfoTv = (TextView) this.findViewById(R.id.qqInfo);
+		//final TextView qqInfoTv = (TextView) this.findViewById(R.id.qqInfo);
 		qqInfo = app.baiduGpsInfo;
-		qqInfoTv.setText(qqInfo);
+		//qqInfoTv.setText(qqInfo);
 		String gpsInfo = app.baiduGpsInfo;
 		if (!StringUtil.isEmpty(gpsInfo)) {
 			baiduGPSMap = FastJsonUtil.toMap(gpsInfo);
 		}
 
-		Button leftBtn = (Button) this.findViewById(R.id.header_left_btn);
+/*		Button leftBtn = (Button) this.findViewById(R.id.header_left_btn);
 		leftBtn.setVisibility(View.GONE);
 
 		Button rightBtn = (Button) this.findViewById(R.id.header_right_btn);// 注销
@@ -70,7 +67,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			public void onClick(View v) {
 				logout();
 			}
-		});
+		});*/
 
 		System.out.println("getQQToken  AccessToken："
 				+ mTencent.getQQToken().getAccessToken() + "\nOpenId："
@@ -81,7 +78,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		  info.getUserInfo(uiListener);
 		
 		
-		//左侧菜单
+	/*	//左侧菜单
 		SlidingMenu menu = new SlidingMenu(this);
 		menu.setMode(SlidingMenu.LEFT);
 		menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
@@ -100,7 +97,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		// 退出
 		LinearLayout linearLayout6 = (LinearLayout) this
 				.findViewById(R.id.line6);
-		linearLayout6.setOnClickListener(this);
+		linearLayout6.setOnClickListener(this);*/
 	}
 
 	// 左侧菜单头部信息初始化
@@ -220,7 +217,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			  Log.i("wRitchie", "QQ网络请求用户信息：" + response);
 			  Map<String, Object> userInfoMap = FastJsonUtil
 						.toMap(response.toString());
-				initLeftMenuHeader(userInfoMap);
+				//initLeftMenuHeader(userInfoMap);
 			
 		}
 

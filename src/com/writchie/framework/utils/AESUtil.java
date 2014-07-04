@@ -14,27 +14,27 @@ import javax.crypto.spec.SecretKeySpec;
 
  
 /**
- * AES¶ÔÎÄ¼ş»ò×Ö·û´®½øĞĞ¼ÓÃÜ½âÃÜ¹¦ÄÜ
- * @author ÎâÀíç÷
+ * AESå¯¹æ–‡ä»¶æˆ–å­—ç¬¦ä¸²è¿›è¡ŒåŠ å¯†è§£å¯†åŠŸèƒ½
+ * @author å´ç†çª
  *
  */
 public class AESUtil {
     // 
 	/**
-	 * ¸ù¾İÃÜÔ¿¶ÔÃ÷ÎÄ¼ÓÃÜ
-	 * @param sSrc Ã÷ÎÄ×Ö·û´®
-	 * @param sKey ÃÜÔ¿
-	 * @return String Èô·µ»Ønull±íÊ¾¼ÓÃÜÊ§°Ü£¬·ñÔò·µ»Ø¼ÓÃÜºóµÄ×Ö·û´®
+	 * æ ¹æ®å¯†é’¥å¯¹æ˜æ–‡åŠ å¯†
+	 * @param sSrc æ˜æ–‡å­—ç¬¦ä¸²
+	 * @param sKey å¯†é’¥
+	 * @return String è‹¥è¿”å›nullè¡¨ç¤ºåŠ å¯†å¤±è´¥ï¼Œå¦åˆ™è¿”å›åŠ å¯†åçš„å­—ç¬¦ä¸²
 	 */
     public static String Encrypt(String sSrc, String sKey)  {
         try {
 			if (sKey == null) {
-			    System.out.print("KeyÎª¿Õnull");
+			    System.out.print("Keyä¸ºç©ºnull");
 			    return null;
 			}
-			// ÅĞ¶ÏKeyÊÇ·ñÎª16Î»
+			// åˆ¤æ–­Keyæ˜¯å¦ä¸º16ä½
 			if (sKey.length() != 16) {
-			    System.out.print("Key³¤¶È²»ÊÇ16Î»");
+			    System.out.print("Keyé•¿åº¦ä¸æ˜¯16ä½");
 			    return null;
 			}
 			byte[] raw = sKey.getBytes();
@@ -51,21 +51,21 @@ public class AESUtil {
     }
 
     /**
-     * ¸ù¾İÃÜÔ¿¶ÔÃ÷ÎÄ½âÃÜ
-     * @param sSrc ÃÜÎÄ×Ö·û´®
-     * @param sKey ÃÜÔ¿
-     * @return String Èô·µ»Ønull±íÊ¾¼ÓÃÜÊ§°Ü£¬·ñÔò·µ»Ø¼ÓÃÜºóµÄ×Ö·û´®
+     * æ ¹æ®å¯†é’¥å¯¹æ˜æ–‡è§£å¯†
+     * @param sSrc å¯†æ–‡å­—ç¬¦ä¸²
+     * @param sKey å¯†é’¥
+     * @return String è‹¥è¿”å›nullè¡¨ç¤ºåŠ å¯†å¤±è´¥ï¼Œå¦åˆ™è¿”å›åŠ å¯†åçš„å­—ç¬¦ä¸²
      */
     public static String Decrypt(String sSrc, String sKey) {
         try {
-            // ÅĞ¶ÏKeyÊÇ·ñÕıÈ·
+            // åˆ¤æ–­Keyæ˜¯å¦æ­£ç¡®
             if (sKey == null) {
-                System.out.print("KeyÎª¿Õnull");
+                System.out.print("Keyä¸ºç©ºnull");
                 return null;
             }
-            // ÅĞ¶ÏKeyÊÇ·ñÎª16Î»
+            // åˆ¤æ–­Keyæ˜¯å¦ä¸º16ä½
             if (sKey.length() != 16) {
-                System.out.print("Key³¤¶È²»ÊÇ16Î»");
+                System.out.print("Keyé•¿åº¦ä¸æ˜¯16ä½");
                 return null;
             }
             byte[] raw = sKey.getBytes("ASCII");
@@ -120,10 +120,10 @@ public class AESUtil {
     }
 
     /**
-     * ¼ÓÃÜÎÄ¼ş
-     * @param filePath:´ı¼ÓÃÜÎÄ¼ş£¬Èç/sdcard/encryxml/xml2DB.xml
-     * @param sKey:¼ÓÃÜÃÜÔ¿,a_z,A_Z,0_9Êı×Ö×ÖÄ¸×é³É
-     * @param destFilePath:ÎÄ¼ş¼ÓÃÜºóµÄÂ·¾¶£¬Èç/sdcard/decryptxml/
+     * åŠ å¯†æ–‡ä»¶
+     * @param filePath:å¾…åŠ å¯†æ–‡ä»¶ï¼Œå¦‚/sdcard/encryxml/xml2DB.xml
+     * @param sKey:åŠ å¯†å¯†é’¥,a_z,A_Z,0_9æ•°å­—å­—æ¯ç»„æˆ
+     * @param destFilePath:æ–‡ä»¶åŠ å¯†åçš„è·¯å¾„ï¼Œå¦‚/sdcard/decryptxml/
      */
     public static void encryptFile(String filePath, String sKey,String destFilePath)
     {
@@ -146,22 +146,22 @@ public class AESUtil {
 				writer.flush();
 			}
 		} catch (Exception e) {
-			System.out.println("¼ÓÃÜÎÄ¼şÒì³££º"+e);
+			System.out.println("åŠ å¯†æ–‡ä»¶å¼‚å¸¸ï¼š"+e);
 		}finally{
 			try {
 				writer.close();
 				bufferReader.close();
 			} catch (IOException e) {
-				System.out.println("¼ÓÃÜÎÄ¼ş¹Ø±ÕÁ÷Òì³£:"+e);
+				System.out.println("åŠ å¯†æ–‡ä»¶å…³é—­æµå¼‚å¸¸:"+e);
 			}
 		}
     }
    
     /**
-     * ½âÃÜÎÄ¼ş
-     * @param filePath:´ı½âÃÜÎÄ¼ş£¬Èç/sdcard/decryptxml/xml2DB.xml
-     * @param sKey:¼ÓÃÜÃÜÔ¿,a_z,A_Z,0_9Êı×Ö×ÖÄ¸×é³É
-     * @param destFilePath:ÎÄ¼ş½âÃÜºóµÄÂ·¾¶£¬Èç/sdcard/encryptxml/
+     * è§£å¯†æ–‡ä»¶
+     * @param filePath:å¾…è§£å¯†æ–‡ä»¶ï¼Œå¦‚/sdcard/decryptxml/xml2DB.xml
+     * @param sKey:åŠ å¯†å¯†é’¥,a_z,A_Z,0_9æ•°å­—å­—æ¯ç»„æˆ
+     * @param destFilePath:æ–‡ä»¶è§£å¯†åçš„è·¯å¾„ï¼Œå¦‚/sdcard/encryptxml/
      */
     public static void decryptFile(String filePath, String sKey,String destFilePath)
     {
@@ -183,13 +183,13 @@ public class AESUtil {
     			writer.flush();
     		}
     	} catch (Exception e) {
-    		System.out.println("½âÃÜÎÄ¼şÒì³££º"+e);
+    		System.out.println("è§£å¯†æ–‡ä»¶å¼‚å¸¸ï¼š"+e);
     	}finally{
     		try {
     			writer.close();
     			bufferReader.close();
     		} catch (IOException e) {
-    			System.out.println("½âÃÜÎÄ¼ş¹Ø±ÕÁ÷Òì³££º"+e);
+    			System.out.println("è§£å¯†æ–‡ä»¶å…³é—­æµå¼‚å¸¸ï¼š"+e);
     		}
     	}
     }

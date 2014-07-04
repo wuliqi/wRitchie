@@ -15,7 +15,7 @@ import com.writchie.common.app.GlobalApplication;
 import com.writchie.common.conf.Constants;
 
 /**
- * 公共的基础Activity父类
+ * 鍏叡鐨勫熀纭�Activity鐖剁被
  * 
  * @author wRitchie
  * 
@@ -28,7 +28,7 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		//super.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		if (sharedPreferences == null) {
 			sharedPreferences = getSharedPreferences(
@@ -43,7 +43,7 @@ public class BaseActivity extends Activity {
 		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 	}
 
-	// 获取当前版本
+	// 鑾峰彇褰撳墠鐗堟湰
 	public int getVersionCode(Context context) {
 		try {
 			return context.getPackageManager().getPackageInfo(

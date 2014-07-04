@@ -3,13 +3,13 @@ package com.writchie.common.app;
 import android.app.Application;
 import android.content.Context;
 /**
- * È«¾ÖApplicationÀà
+ * å…¨å±€Applicationç±»
  * @author wRitchie
  *
  */
 public class GlobalApplication extends Application {
 	public static Context appContext;
-	public String baiduGpsInfo;//°Ù¶ÈµØÍ¼¶¨Î»ĞÅ
+	public String baiduGpsInfo;//ç™¾åº¦åœ°å›¾å®šä½ä¿¡
 	
 
 	@Override

@@ -2,13 +2,13 @@ package com.writchie.framework.utils;
 
 import java.security.MessageDigest;
 /**
- * MD5¼ÓÃÜËã·¨
- * @author ÎâÀíç÷
+ * MD5åŠ å¯†ç®—æ³•
+ * @author å´ç†çª
  *
  */
 public class MD5Util {
 	
-	// MD5¼ÓÃÜ£¬32Î»
+	// MD5åŠ å¯†ï¼Œ32ä½
 	public static String md5(String str) {
 		MessageDigest md5 = null;
 		try {
@@ -37,7 +37,7 @@ public class MD5Util {
 		return hexValue.toString();
 	}
 
-	// ¿ÉÄæµÄ¼ÓÃÜËã·¨
+	// å¯é€†çš„åŠ å¯†ç®—æ³•
 	public static String encryptmd5(String str) {
 		char[] a = str.toCharArray();
 		for (int i = 0; i < a.length; i++) {

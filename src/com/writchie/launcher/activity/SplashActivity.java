@@ -16,8 +16,8 @@ import com.writchie.framework.activity.BaseActivity;
 import com.writchie.login.activity.LoginActivity;
 
 public class SplashActivity extends BaseActivity {
-	private final int SPLASH_DISPLAY_LENGHT = 5000; // ÑÓ³Ù5Ãë
-	// °Ù¶È¶¨Î»SDKµÄºËĞÄÀà
+	private final int SPLASH_DISPLAY_LENGHT = 5000; // å»¶è¿Ÿ5ç§’
+	// ç™¾åº¦å®šä½SDKçš„æ ¸å¿ƒç±»
 	public LocationClient mLocationClient = null;
 	public LocationListenner locationListener = new LocationListenner();
 	
@@ -49,25 +49,25 @@ public class SplashActivity extends BaseActivity {
 		mLocationClient = new LocationClient(this);
 		mLocationClient.setAK(Constants.BAIDU_ACCESS_KEY);
 		mLocationClient.registerLocationListener(locationListener);
-		setLocationOption();// Éè¶¨¶¨Î»²ÎÊı
-		mLocationClient.start();// ¿ªÊ¼¶¨Î»
+		setLocationOption();// è®¾å®šå®šä½å‚æ•°
+		mLocationClient.start();// å¼€å§‹å®šä½
 	}
 	
 	/**
-	 * °Ù¶È¶¨Î»ÉèÖÃÏà¹Ø²ÎÊı
+	 * ç™¾åº¦å®šä½è®¾ç½®ç›¸å…³å‚æ•°
 	 */
 	private void setLocationOption() {
 		LocationClientOption option = new LocationClientOption();
 		option.setOpenGps(true);
-		option.setAddrType("all");// ·µ»ØµÄ¶¨Î»½á¹û°üº¬µØÖ·ĞÅÏ¢
-		option.setCoorType("bd09ll");// ·µ»ØµÄ¶¨Î»½á¹ûÊÇ°Ù¶È¾­Î³¶È,Ä¬ÈÏÖµgcj02
-		// µ±²»Éè´ËÏî£¬»òÕßËùÉèµÄÕûÊıÖµĞ¡ÓÚ1000£¨ms£©Ê±£¬²ÉÓÃÒ»´Î¶¨Î»Ä£Ê½¡£
-	    //option.setScanSpan(5000);//ÉèÖÃ·¢Æğ¶¨Î»ÇëÇóµÄ¼ä¸ôÊ±¼äÎª5000ms
-		option.disableCache(true);// ½ûÖ¹ÆôÓÃ»º´æ¶¨Î»
-		option.setPoiNumber(5); // ×î¶à·µ»ØPOI¸öÊı
-		option.setPoiDistance(1000); // poi²éÑ¯¾àÀë
-		option.setPoiExtraInfo(true); // ÊÇ·ñĞèÒªPOIµÄµç»°ºÍµØÖ·µÈÏêÏ¸ĞÅÏ¢
-		option.setPriority(LocationClientOption.GpsFirst);// µ±gps¿ÉÓÃ£¬¶øÇÒ»ñÈ¡ÁË¶¨Î»½á¹ûÊ±£¬²»ÔÙ·¢ÆğÍøÂçÇëÇó£¬Ö±½Ó·µ»Ø¸øÓÃ»§×ø±ê¡£Õâ¸öÑ¡ÏîÊÊºÏÏ£ÍûµÃµ½×¼È·×ø±êÎ»ÖÃµÄÓÃ»§¡£Èç¹ûgps²»¿ÉÓÃ£¬ÔÙ·¢ÆğÍøÂçÇëÇó£¬½øĞĞ¶¨Î»¡£
+		option.setAddrType("all");// è¿”å›çš„å®šä½ç»“æœåŒ…å«åœ°å€ä¿¡æ¯
+		option.setCoorType("bd09ll");// è¿”å›çš„å®šä½ç»“æœæ˜¯ç™¾åº¦ç»çº¬åº¦,é»˜è®¤å€¼gcj02
+		// å½“ä¸è®¾æ­¤é¡¹ï¼Œæˆ–è€…æ‰€è®¾çš„æ•´æ•°å€¼å°äº1000ï¼ˆmsï¼‰æ—¶ï¼Œé‡‡ç”¨ä¸€æ¬¡å®šä½æ¨¡å¼ã€‚
+	    //option.setScanSpan(5000);//è®¾ç½®å‘èµ·å®šä½è¯·æ±‚çš„é—´éš”æ—¶é—´ä¸º5000ms
+		option.disableCache(true);// ç¦æ­¢å¯ç”¨ç¼“å­˜å®šä½
+		option.setPoiNumber(5); // æœ€å¤šè¿”å›POIä¸ªæ•°
+		option.setPoiDistance(1000); // poiæŸ¥è¯¢è·ç¦»
+		option.setPoiExtraInfo(true); // æ˜¯å¦éœ€è¦POIçš„ç”µè¯å’Œåœ°å€ç­‰è¯¦ç»†ä¿¡æ¯
+		option.setPriority(LocationClientOption.GpsFirst);// å½“gpså¯ç”¨ï¼Œè€Œä¸”è·å–äº†å®šä½ç»“æœæ—¶ï¼Œä¸å†å‘èµ·ç½‘ç»œè¯·æ±‚ï¼Œç›´æ¥è¿”å›ç»™ç”¨æˆ·åæ ‡ã€‚è¿™ä¸ªé€‰é¡¹é€‚åˆå¸Œæœ›å¾—åˆ°å‡†ç¡®åæ ‡ä½ç½®çš„ç”¨æˆ·ã€‚å¦‚æœgpsä¸å¯ç”¨ï¼Œå†å‘èµ·ç½‘ç»œè¯·æ±‚ï¼Œè¿›è¡Œå®šä½ã€‚
 		mLocationClient.setLocOption(option);
 	}
 
@@ -141,7 +141,7 @@ public class SplashActivity extends BaseActivity {
 			// option.setOpenGps(false);
 			// mLocationClient.setLocOption(option);
 
-			// ½«»ñÈ¡µÄĞÅÏ¢±£´æµ½applicationÖĞ ¾­¶È:Longitude,Î³¶È:Latitude
+			// å°†è·å–çš„ä¿¡æ¯ä¿å­˜åˆ°applicationä¸­ ç»åº¦:Longitude,çº¬åº¦:Latitude
 			app.baiduGpsInfo=sb.toString();
 		}
 	}
@@ -150,13 +150,13 @@ public class SplashActivity extends BaseActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		if (mLocationClient != null && mLocationClient.isStarted()) {
-			mLocationClient.stop();// Í£Ö¹¶¨Î»
+			mLocationClient.stop();// åœæ­¢å®šä½
 			mLocationClient = null;
 		}
 	}
 
 	public void showGPSInfo(String sb) {
-		toast("°Ù¶ÈSDK¶¨Î»ĞÅÏ¢£º" + sb);
+		toast("ç™¾åº¦SDKå®šä½ä¿¡æ¯ï¼š" + sb);
 		
 	}
 

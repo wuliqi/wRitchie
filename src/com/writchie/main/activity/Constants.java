@@ -5,77 +5,77 @@ import android.os.Environment;
 
 public class Constants {
 	/**
-	 ******************************************* ²ÎÊıÉèÖÃĞÅÏ¢¿ªÊ¼ ******************************************
+	 ******************************************* å‚æ•°è®¾ç½®ä¿¡æ¯å¼€å§‹ ******************************************
 	 */
 
-	// Ó¦ÓÃÃû³Æ
+	// åº”ç”¨åç§°
 	public static String APP_NAME = "";
 
-	// Í¼Æ¬Â·¾¶
+	// å›¾ç‰‡è·¯å¾„
 	public static final String IMAGE_URL = "http://58.211.5.34:8080/studioms/staticmedia/images/#";
 
-	// ÊÓÆµÂ·¾¶
+	// è§†é¢‘è·¯å¾„
 	public static final String VIDEO_URL = "http://58.211.5.34:8080/studioms/staticmedia/video/#";
 
-	// ±£´æ²ÎÊıÎÄ¼ş¼ĞÃû³Æ
+	// ä¿å­˜å‚æ•°æ–‡ä»¶å¤¹åç§°
 	public static final String SHARED_PREFERENCE_NAME = "itau_jingdong_prefs";
 
-	// SDCardÂ·¾¶
+	// SDCardè·¯å¾„
 	public static final String SD_PATH = Environment
 			.getExternalStorageDirectory().getAbsolutePath();
 
-	// Í¼Æ¬´æ´¢Â·¾¶
+	// å›¾ç‰‡å­˜å‚¨è·¯å¾„
 	public static final String BASE_PATH = SD_PATH + "/iTau/jingdong/";
 
-	// »º´æÍ¼Æ¬Â·¾¶
+	// ç¼“å­˜å›¾ç‰‡è·¯å¾„
 	public static final String BASE_IMAGE_CACHE = BASE_PATH + "cache/images/";
 
-	// ĞèÒª·ÖÏíµÄÍ¼Æ¬
+	// éœ€è¦åˆ†äº«çš„å›¾ç‰‡
 	public static final String SHARE_FILE = BASE_PATH + "QrShareImage.png";
 
-	// ÊÖ»úIMEIºÅÂë
+	// æ‰‹æœºIMEIå·ç 
 	public static String IMEI = "";
 
-	// ÊÖ»úºÅÂë
+	// æ‰‹æœºå·ç 
 	public static String TEL = "";
 
-	// ÆÁÄ»¸ß¶È
+	// å±å¹•é«˜åº¦
 	public static int SCREEN_HEIGHT = 800;
 
-	// ÆÁÄ»¿í¶È
+	// å±å¹•å®½åº¦
 	public static int SCREEN_WIDTH = 480;
 
-	// ÆÁÄ»ÃÜ¶È
+	// å±å¹•å¯†åº¦
 	public static float SCREEN_DENSITY = 1.5f;
 
-	// ·ÖÏí³É¹¦
+	// åˆ†äº«æˆåŠŸ
 	public static final int SHARE_SUCCESS = 0X1000;
 
-	// ·ÖÏíÈ¡Ïû
+	// åˆ†äº«å–æ¶ˆ
 	public static final int SHARE_CANCEL = 0X2000;
 
-	// ·ÖÏíÊ§°Ü
+	// åˆ†äº«å¤±è´¥
 	public static final int SHARE_ERROR = 0X3000;
 
-	// ¿ªÊ¼Ö´ĞĞ
+	// å¼€å§‹æ‰§è¡Œ
 	public static final int EXECUTE_LOADING = 0X4000;
 
-	// ÕıÔÚÖ´ĞĞ
+	// æ­£åœ¨æ‰§è¡Œ
 	public static final int EXECUTE_SUCCESS = 0X5000;
 
-	// Ö´ĞĞÍê³É
+	// æ‰§è¡Œå®Œæˆ
 	public static final int EXECUTE_FAILED = 0X6000;
 
-	// ¼ÓÔØÊı¾İ³É¹¦
+	// åŠ è½½æ•°æ®æˆåŠŸ
 	public static final int LOAD_DATA_SUCCESS = 0X7000;
 
-	// ¼ÓÔØÊı¾İÊ§°Ü
+	// åŠ è½½æ•°æ®å¤±è´¥
 	public static final int LOAD_DATA_ERROR = 0X8000;
 
-	// ¶¯Ì¬¼ÓÔØÊı¾İ
+	// åŠ¨æ€åŠ è½½æ•°æ®
 	public static final int SET_DATA = 0X9000;
 
-	// Î´µÇÂ¼
+	// æœªç™»å½•
 	public static final int NONE_LOGIN = 0X10000;
 	//
 	public static final String HTTP_GET = "get";
@@ -86,6 +86,6 @@ public class Constants {
 	public static final String GRAPH_SIMPLE_USER_INFO= "https://graph.qq.com/user/get_simple_userinfo";
 
 	/**
-	 ******************************************* ²ÎÊıÉèÖÃĞÅÏ¢½áÊø ******************************************
+	 ******************************************* å‚æ•°è®¾ç½®ä¿¡æ¯ç»“æŸ ******************************************
 	 */
 }

@@ -23,7 +23,7 @@ import com.writchie.framework.utils.MD5Util;
 import com.writchie.framework.utils.StringUtil;
 import com.writchie.main.activity.MainActivity;
 /**
- * ÓÃ»§µÇÂ¼
+ * ç”¨æˆ·ç™»å½•
  * @author wRitchie
  *
  */
@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity {
 
 	public void doLogin() {
 		/*if(!(StringUtil.isEmpty(openid)||StringUtil.isEmpty(access_token)||StringUtil.isEmpty(expires_in))){
-			// ÃÜÂë½âÃÜ³ÉÃ÷ÎÄ
+			// å¯†ç è§£å¯†æˆæ˜æ–‡
 			String md5 = MD5Util.md5(Constants.SKEY);
 			String sKey = md5.substring(0, md5.length() - 16);
 			openid = AESUtil.Decrypt(openid, sKey);
@@ -70,10 +70,10 @@ public class LoginActivity extends BaseActivity {
 			String expires_inDecrypt = AESUtil.Decrypt(expires_in, sKey);
 			long expiresIn=Long.parseLong(expires_inDecrypt);
 			expires_in=(expiresIn-System.currentTimeMillis())/1000+"";
-			Log.i("wRitchie","½âÃÜºó£ºopenId:"+openid+"\t accessToken:"+access_token+"\texpiresIn:"+expires_in);
+			Log.i("wRitchie","è§£å¯†åï¼šopenId:"+openid+"\t accessToken:"+access_token+"\texpiresIn:"+expires_in);
 			//mTencent.setOpenId(openid);
 			//mTencent.setAccessToken(access_token, expires_in);
-		}else{//ÒÑ¾­µÇÂ¼
+		}else{//å·²ç»ç™»å½•
 			Intent intent=new Intent(LoginActivity.this,MainActivity.class);
 			startActivity(intent);
 			finish();
@@ -97,14 +97,14 @@ public class LoginActivity extends BaseActivity {
 				@Override
 				public void onComplete(Object arg0) {
 					toast(getString(R.string.login_qq_success_toast));
-					Log.i("wRitchie", "QQ·µ»Ø£º"+arg0.toString());
+					Log.i("wRitchie", "QQè¿”å›ï¼š"+arg0.toString());
 					Map<String, Object> qqInfoMap=FastJsonUtil.toMap(arg0.toString());
-					//Ã÷ÎÄ¼ÓÃÜ±£´æ    TODO
+					//æ˜æ–‡åŠ å¯†ä¿å­˜    TODO
 					String openId=(String) qqInfoMap.get("openid");
 					String accessToken=(String) qqInfoMap.get("access_token");
 					String expiresIn=String.valueOf(qqInfoMap.get("expires_in"));
-					long expiresInlong=System.currentTimeMillis() + Long.parseLong(expiresIn) * 1000;//tokenµÄÊ§Ğ§ÈÕÆÚ
-					Log.i("wRitchie","¼ÓÃÜÇ°£ºopenId:"+openId+"\t accessToken:"+accessToken+"\texpiresIn:"+expiresInlong);
+					long expiresInlong=System.currentTimeMillis() + Long.parseLong(expiresIn) * 1000;//tokençš„å¤±æ•ˆæ—¥æœŸ
+					Log.i("wRitchie","åŠ å¯†å‰ï¼šopenId:"+openId+"\t accessToken:"+accessToken+"\texpiresIn:"+expiresInlong);
 					Editor editor = sharedPreferences.edit();
 					String md5 = MD5Util.md5(Constants.SKEY);
 					String sKey = md5.substring(0, md5.length() - 16);
@@ -115,7 +115,7 @@ public class LoginActivity extends BaseActivity {
 					editor.putString("access_token", accessTokenEncry);
 					editor.putString("expires_in", expiresInEncry);
 					editor.commit();
-					Log.i("wRitchie","¼ÓÃÜºó£ºopenId:"+openIdEncry+"\t accessToken:"+accessTokenEncry+"\texpiresIn:"+expiresInEncry);
+					Log.i("wRitchie","åŠ å¯†åï¼šopenId:"+openIdEncry+"\t accessToken:"+accessTokenEncry+"\texpiresIn:"+expiresInEncry);
 					Intent intent=new Intent(LoginActivity.this,MainActivity.class);
 					//intent.putExtra("qqInfo", "openId:"+openId+"\t accessToken:"+accessToken+"\texpiresIn:"+expiresInlong);
 					startActivity(intent);

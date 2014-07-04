@@ -1,14 +1,14 @@
 package com.writchie.common.conf;
 /**
- * Http³£Á¿Àà
+ * Httpå¸¸é‡ç±»
  * @author wRitchie
  *
  */
 public class HttpUrlConstants {
-	//QQ½Ó¿Úurls
-	public static final String GET_USER_INFO="https://graph.qq.com/user/get_simple_userinfo";//·ÃÎÊÓÃ»§×ÊÁÏ https://graph.qq.com/user/get_user_info
+	//QQæ¥å£urls
+	public static final String GET_USER_INFO="https://graph.qq.com/user/get_simple_userinfo";//è®¿é—®ç”¨æˆ·èµ„æ–™ https://graph.qq.com/user/get_user_info
 	
-	public static final String GET_WEATHER_INFO="http://m.weather.com.cn/data/101010100.html";//ÌìÆøÔ¤±¨
+	public static final String GET_WEATHER_INFO="http://m.weather.com.cn/data/101010100.html";//å¤©æ°”é¢„æŠ¥
 	
 	
 	

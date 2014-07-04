@@ -4,15 +4,10 @@
     android:layout_height="match_parent"
 	android:gravity="center_horizontal"
     tools:context=".MainActivity" >
-	<include 
-	    android:id="@+id/header"
-	    layout="@layout/common_header"/>
-	
     <TextView
         android:id="@+id/qqInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header"
         />
 
 </RelativeLayout>
